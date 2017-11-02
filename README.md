@@ -1,12 +1,31 @@
+################################################################################
+#work on the app in development mode, on a local machine:
+################################################################################
+
 git clone git@github.com:dus/container.git
 cd container
 make development
 
-#in another window:
+#in another window (when the containers have started properly)
 make development_db
 
 #browse through port 3000:
 firefox localhost:3000
+
+
+################################################################################
+#work on the app in production mode, on a local machine:
+################################################################################
+
+git clone git@github.com:dus/container.git
+cd container
+make production
+
+#in another window (when the containers have started properly)
+make production_db
+
+#browse through port 80:
+firefox localhost:80
 
 
 
