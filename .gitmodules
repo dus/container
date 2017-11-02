@@ -1,0 +1,3 @@
+[submodule "theapp"]
+	path = theapp
+	url = git@github.com:dus/railsapp.git
