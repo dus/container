@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.production
+    command: bundle exec rails s puma -e production -p 3333 -b '0.0.0.0'
+    #command: rails new . --force --database=postgresql
+    ports:
+      - "3333:3333"
+    depends_on:
+      - db
+    #if files on host are created as root, please change ownership directly on host (this happens on linux, not on mac, so letting as is for the moment)
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+      - "80:80"
